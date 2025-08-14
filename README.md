@@ -1,63 +1,103 @@
-# 🌟 FairDeal Blockchain Marketplace 🌟
+# 🌟 FairDeal Marketing🌟
 
-Welcome to **FairDeal** — a decentralized marketplace empowering middlemen to sell products **without upfront investment**. Powered by blockchain smart contracts, it automates fair commission sharing between manufacturers and middlemen, fostering trust, transparency, and inclusion.
+
+## 👥 Team Name
+**Debug Demons**
+
+## 👤 Team Members
+| Name | Email | LinkedIn |
+| ---- | ----- | -------- |
+| N Somendra | 22501a05c2@pvpsit.ac.in | [LinkedIn](https://www.linkedin.com/in/somendra-n/) |
+| K Manmohan | 22501a0578@pvpsit.ac.in | [LinkedIn](https://www.linkedin.com/in/manmohan-kancherla/) |
+| M Sai Harshith | 22501a05a1@pvpsit.ac.in | [LinkedIn](https://www.linkedin.com/in/sai-harshith-madarapu-97468126b/) |
 
 ---
 
-## 🚀 Project Vision
+## 📖 Project Description
+**FairDeal** is a **decentralized marketplace** enabling middlemen to sell products **without upfront investment**. Powered by **blockchain smart contracts**, it ensures:
 
-Many aspiring entrepreneurs want to start businesses but lack capital.  
-FairDeal enables middlemen to:
-
-- Receive products without paying manufacturers upfront  
-- Sell products directly to customers  
-- Automatically split revenue via smart contracts:  
+- Transparent and fair commission splitting  
+- Easy product listing for manufacturers  
+- Automated revenue distribution:  
   - **Manufacturer:** 70-80% of sale price  
   - **Middleman:** 20-25% of sale price  
 
-A win-win ecosystem backed by blockchain automation.
+A win-win ecosystem for grassroots entrepreneurs! 🚀
 
 ---
 
-## 🛠️ Tech Stack Overview
+## 🔗 Smart Contract Overview
+**Move Language** | **Aptos Blockchain**
 
-| Layer             | Technology                     |
-| ----------------- | ----------------------------- |
-| **Frontend**      | React (in `client/`)           |
-| **Backend API**   | Node.js, Express, MongoDB (in `server/`) |
-| **Blockchain**    | Move language smart contracts (in `contracts/`) |
+Key Features:  
+- ✅ Add products with pricing & commission splits  
+- ✅ Buy products with automatic revenue split  
+- ✅ Emit events for transparency (NewProduct & Purchase)  
+
+```move
+module fairsell::FairSell {
+    struct Product { 
+        id: u64, 
+        middleman: address, 
+        manufacturer: address, 
+        price: u64, 
+        mfg_bps: u64, 
+        mm_bps: u64, 
+        active: bool, 
+        meta: string::String 
+    }
+
+    struct Registry { 
+        products: vector<Product>, 
+        next_id: u64, 
+        add_events: event::EventHandle<NewProductEvent>, 
+        buy_events: event::EventHandle<PurchaseEvent> 
+    }
+
+    public entry fun add_product(...) { /* Adds product & emits event */ }
+    public entry fun buy(...) { /* Handles purchase & revenue split */ }
+}
+````
+
+> Full smart contract is in `contracts/` folder.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer           | Technology                            |
+| --------------- | ------------------------------------- |
+| **Frontend**    | React (`client/`)                     |
+| **Backend API** | Node.js, Express, MongoDB (`server/`) |
+| **Blockchain**  | Move Smart Contracts (`contracts/`)   |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-
 fairdeal-blockchain/
-├── client/           # React frontend application
-├── server/           # Node.js + Express backend API
-├── contracts/        # Move smart contracts for blockchain logic
+├── client/           # React frontend
+├── server/           # Node.js + Express backend
+├── contracts/        # Move smart contracts
 ├── README.md         # This file
-
-````
+```
 
 ---
 
 ## 💻 Getting Started
 
-### 1. Setup Backend API (`server/`)
+### 1️⃣ Backend
 
 ```bash
 cd server
 npm install
 node server.js
-````
+```
 
-Backend runs at `http://localhost:5000`
+Runs at: `http://localhost:5000`
 
----
-
-### 2. Setup Frontend React App (`client/`)
+### 2️⃣ Frontend
 
 ```bash
 cd client
@@ -65,58 +105,60 @@ npm install
 npm start
 ```
 
-Frontend runs at `http://localhost:3000`
+Runs at: `http://localhost:3000`
 
----
+### 3️⃣ Compile & Deploy Smart Contracts
 
-### 3. Compile & Deploy Move Smart Contracts (`contracts/`)
-
-* Use Aptos or Sui CLI tools to compile and deploy contracts found in `contracts/`
-* Official docs:
+* Use **Aptos CLI** or **Sui CLI**
+* Official Docs:
 
   * [Aptos](https://aptos.dev/)
   * [Sui](https://docs.sui.io/)
 
 ---
 
-## 🔗 How It Works
+## ⚙ How It Works
 
-1. Manufacturers add products via backend API
-2. Middlemen browse & sell products in the React frontend
-3. Smart contract triggers commission distribution on sale
-4. Backend updates product status to “sold”
-5. Blockchain ensures transparent and automated revenue splits
-
----
-
-## 🛡️ Wallet & Security
-
-* Frontend integrates crypto wallet for signing transactions
-* Use SDKs like `aptos-wallet-adapter` or `sui-wallet-kit`
-* Secure key management and transaction approvals
+1. Manufacturer adds products via backend
+2. Middlemen browse & sell products on frontend
+3. Smart contract triggers automatic revenue split
+4. Backend updates product status
+5. Blockchain ensures transparency & trust
 
 ---
 
-## 📈 Roadmap & Enhancements
+## 🔐 Wallet & Security
 
-* Full blockchain integration in backend & frontend
+* Frontend integrates crypto wallets (Aptos/Sui)
+* Secure key management & transaction approvals
+* SDKs: `aptos-wallet-adapter` or `sui-wallet-kit`
+
+---
+
+## 📈 Roadmap
+
+* Full blockchain integration in frontend & backend
 * User authentication & profiles
 * Inventory management for middlemen
 * Multi-payment options (crypto + fiat)
-* Cloud deployment for production readiness
+* Cloud deployment for production
 
 ---
 
-## ❤️ Why FairDeal?
+## 💖 Why FairDeal?
 
-Designed to break financial barriers and empower grassroots entrepreneurs.
-FairDeal leverages blockchain’s trust and automation for a fair marketplace benefiting all stakeholders.
-
----
-
-## 📄 License
-
-MIT License — see LICENSE file.
+FairDeal **breaks financial barriers** and empowers grassroots entrepreneurs. Blockchain ensures a **fair, transparent, and trustless marketplace** for all stakeholders. 🌱
 
 ---
 
+## 🖼 Screenshots
+
+<img width="871" height="776" alt="image" src="https://github.com/user-attachments/assets/6148e2e6-ba56-4088-a250-7ce6ec1ce16a" />
+<img width="858" height="627" alt="image" src="https://github.com/user-attachments/assets/f26cb375-33e1-4a0e-88fd-c35ebc37cc1d" />
+<img width="1362" height="342" alt="image" src="https://github.com/user-attachments/assets/bdf0f324-bdb8-4d85-9209-894ce3fdad1f" />
+<img width="1347" height="297" alt="image" src="https://github.com/user-attachments/assets/478571e1-1fcd-4f32-bed1-0620d7168e1d" />
+
+---
+
+
+```
