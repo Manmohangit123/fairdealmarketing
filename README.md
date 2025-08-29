@@ -18,9 +18,9 @@
 
 - Transparent and fair commission splitting  
 - Easy product listing for manufacturers  
-- Automated revenue distribution:  
-  - **Manufacturer:** 70-80% of sale price  
-  - **Middleman:** 20-25% of sale price  
+- Automated revenue distribution
+- Reduced Tax burden on every stakeholder of the supplychain
+- Reducing Intial investment of the customer
 
 A win-win ecosystem for grassroots entrepreneurs! 🚀
 
